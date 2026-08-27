@@ -1,0 +1,352 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at center,
+      #06343d 0%,
+      #02090c 35%,
+      #000 75%
+    );
+
+  color: white;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+#app {
+  min-height: 100vh;
+  padding: 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  margin-top: 10px;
+
+  font-size: 30px;
+  font-weight: bold;
+
+  letter-spacing: 8px;
+
+  color: white;
+
+  text-shadow:
+    0 0 10px #55f5ff,
+    0 0 30px #55f5ff;
+}
+
+.small {
+  margin-top: 8px;
+
+  font-size: 8px;
+
+  letter-spacing: 4px;
+
+  color: #5d9299;
+}
+
+.orb {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 280px;
+  height: 280px;
+
+  transform:
+    translate(-50%, -55%);
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.r {
+  position: absolute;
+
+  border-radius: 50%;
+
+  border: 1px solid
+    rgba(85,245,255,.5);
+}
+
+.r1 {
+  width: 280px;
+  height: 280px;
+
+  border-top-color: #55f5ff;
+
+  animation:
+    spin 7s linear infinite;
+}
+
+.r2 {
+  width: 220px;
+  height: 220px;
+
+  border-right-color: #55f5ff;
+
+  animation:
+    spinReverse 4s linear infinite;
+}
+
+.r3 {
+  width: 165px;
+  height: 165px;
+
+  border-bottom-color: #55f5ff;
+
+  animation:
+    spin 2.5s linear infinite;
+}
+
+.core {
+  width: 80px;
+  height: 80px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      white 0%,
+      #bfffff 15%,
+      #19eaff 45%,
+      transparent 72%
+    );
+
+  box-shadow:
+    0 0 20px white,
+    0 0 50px #55f5ff,
+    0 0 100px #00bcd4;
+
+  animation: pulse 2s infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulse {
+  0%,100% {
+    transform: scale(.85);
+  }
+
+  50% {
+    transform: scale(1);
+  }
+}
+
+.listening .core {
+  animation:
+    listen .5s infinite;
+}
+
+@keyframes listen {
+  0%,100% {
+    transform: scale(.8);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+#status {
+  position: absolute;
+
+  top: calc(50% + 120px);
+
+  color: #55f5ff;
+
+  font-size: 11px;
+
+  letter-spacing: 5px;
+}
+
+#answer {
+  position: absolute;
+
+  bottom: 145px;
+
+  width: 90%;
+
+  max-width: 700px;
+
+  text-align: center;
+
+  font-size: 16px;
+}
+
+.bar {
+  position: fixed;
+
+  bottom: 35px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: calc(100% - 30px);
+
+  max-width: 750px;
+
+  display: flex;
+
+  gap: 7px;
+}
+
+#input {
+  flex: 1;
+
+  height: 52px;
+
+  border-radius: 13px;
+
+  border: 1px solid #245b63;
+
+  outline: none;
+
+  background: #06181c;
+
+  color: white;
+
+  padding: 0 16px;
+
+  font-size: 15px;
+}
+
+#input:focus {
+  border-color: #55f5ff;
+
+  box-shadow:
+    0 0 15px
+    rgba(85,245,255,.2);
+}
+
+button {
+  height: 52px;
+
+  border-radius: 13px;
+
+  border: 1px solid #245b63;
+
+  background: #06262c;
+
+  color: #55f5ff;
+
+  padding: 0 17px;
+
+  font-size: 20px;
+
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(.96);
+}
+
+#hidden {
+  display: none;
+
+  min-height: 100vh;
+
+  background: #000;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  gap: 25px;
+}
+
+.hiddenTitle {
+  font-size: 30px;
+
+  letter-spacing: 7px;
+
+  color: #55f5ff;
+
+  text-shadow:
+    0 0 25px #55f5ff;
+}
+
+#show {
+  font-size: 14px;
+  padding: 0 25px;
+}
+
+@media(max-width:600px) {
+
+  .title {
+    font-size: 21px;
+    letter-spacing: 5px;
+  }
+
+  .small {
+    font-size: 6px;
+  }
+
+  .orb {
+    width: 225px;
+    height: 225px;
+  }
+
+  .r1 {
+    width: 225px;
+    height: 225px;
+  }
+
+  .r2 {
+    width: 180px;
+    height: 180px;
+  }
+
+  .r3 {
+    width: 140px;
+    height: 140px;
+  }
+
+  .core {
+    width: 70px;
+    height: 70px;
+  }
+
+  #status {
+    top: calc(50% + 100px);
+  }
+
+  #answer {
+    bottom: 130px;
+    font-size: 14px;
+  }
+}
